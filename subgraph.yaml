@@ -1,47 +1,30 @@
-specVersion: 0.0.1
+specVersion: 0.0.2
+description: HOPR on Ethereum mainnet subgraph
+repository: https://github.com/minatofund/hopr-subgraph-mainnet
 schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum/contract
-    name: Contract
+    name: HOPR
     network: mainnet
     source:
-      address: "0xF5581dFeFD8Fb0e4aeC526bE659CFaB1f8c781dA"
-      abi: Contract
+      address: '0xf5581dfefd8fb0e4aec526be659cfab1f8c781da'
+      abi: HOPR
+      startBlock: 11887223
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.2
+      apiVersion: 0.0.4
       language: wasm/assemblyscript
       entities:
-        - Approval
-        - AuthorizedOperator
-        - Burned
-        - Minted
-        - RevokedOperator
-        - RoleGranted
-        - RoleRevoked
-        - Sent
-        - Transfer
+        - Account
+        - AccountSnapshot
+        - StatsContainer
+        - Transaction
+        - TransferEvent
       abis:
-        - name: Contract
-          file: ./abis/Contract.json
+        - name: HOPR
+          file: ./abis/HOPR.json
       eventHandlers:
-        - event: Approval(indexed address,indexed address,uint256)
-          handler: handleApproval
-        - event: AuthorizedOperator(indexed address,indexed address)
-          handler: handleAuthorizedOperator
-        - event: Burned(indexed address,indexed address,uint256,bytes,bytes)
-          handler: handleBurned
-        - event: Minted(indexed address,indexed address,uint256,bytes,bytes)
-          handler: handleMinted
-        - event: RevokedOperator(indexed address,indexed address)
-          handler: handleRevokedOperator
-        - event: RoleGranted(indexed bytes32,indexed address,indexed address)
-          handler: handleRoleGranted
-        - event: RoleRevoked(indexed bytes32,indexed address,indexed address)
-          handler: handleRoleRevoked
-        - event: Sent(indexed address,indexed address,indexed address,uint256,bytes,bytes)
-          handler: handleSent
         - event: Transfer(indexed address,indexed address,uint256)
-          handler: handleTransfer
+          handler: handleHoprTransfer
       file: ./src/mapping.ts
