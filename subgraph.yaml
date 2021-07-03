@@ -1,0 +1,47 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Contract
+    network: mainnet
+    source:
+      address: "0xF5581dFeFD8Fb0e4aeC526bE659CFaB1f8c781dA"
+      abi: Contract
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.2
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - AuthorizedOperator
+        - Burned
+        - Minted
+        - RevokedOperator
+        - RoleGranted
+        - RoleRevoked
+        - Sent
+        - Transfer
+      abis:
+        - name: Contract
+          file: ./abis/Contract.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,uint256)
+          handler: handleApproval
+        - event: AuthorizedOperator(indexed address,indexed address)
+          handler: handleAuthorizedOperator
+        - event: Burned(indexed address,indexed address,uint256,bytes,bytes)
+          handler: handleBurned
+        - event: Minted(indexed address,indexed address,uint256,bytes,bytes)
+          handler: handleMinted
+        - event: RevokedOperator(indexed address,indexed address)
+          handler: handleRevokedOperator
+        - event: RoleGranted(indexed bytes32,indexed address,indexed address)
+          handler: handleRoleGranted
+        - event: RoleRevoked(indexed bytes32,indexed address,indexed address)
+          handler: handleRoleRevoked
+        - event: Sent(indexed address,indexed address,indexed address,uint256,bytes,bytes)
+          handler: handleSent
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+      file: ./src/mapping.ts
