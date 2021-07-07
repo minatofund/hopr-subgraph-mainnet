@@ -1,10 +1,24 @@
 # Hopr Subgraph Mainnet
 HOPR on Ethereum mainnet subgraph
 
-## Deploy
+## Deploy on Explorer
 This subgraph has been deployed. You can find the details and use playground here.
 
 https://thegraph.com/explorer/subgraph/minatofund/hopr-subgraph-mainnet
+
+## Demo
+* Video Demo 
+
+[https://www.youtube.com/watch?v=28TcZ4TBjZ4](https://www.youtube.com/watch?v=28TcZ4TBjZ4)
+
+* Live Demo (Staging)
+
+[https://knowyourdefistg.z11.web.core.windows.net/](https://knowyourdefistg.z11.web.core.windows.net/)
+
+* Live Demo PR
+
+[https://github.com/KnowYourDeFi/knowyourdefi.github.io/pull/1](https://github.com/KnowYourDeFi/knowyourdefi.github.io/pull/1)
+
 
 ## Sample Query
 
