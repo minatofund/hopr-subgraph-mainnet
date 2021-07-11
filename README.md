@@ -6,6 +6,10 @@ This subgraph has been deployed. You can find the details and use playground her
 
 https://thegraph.com/explorer/subgraph/minatofund/hopr-subgraph-mainnet
 
+Migrated to the latest explorer as well.
+
+https://thegraph.com/explorer/subgraph?id=0x77d63a93c90a9860ab07ee6bc7bc5becad1cbfde-0&version=0x77d63a93c90a9860ab07ee6bc7bc5becad1cbfde-0-0
+
 ## Demo
 * Video Demo 
 
